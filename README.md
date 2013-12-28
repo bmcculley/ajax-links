@@ -1,5 +1,4 @@
-Ajax Links
-==========
+# Ajax Links
 
 Ajax, PHP and MySQL link bookmarking script
 
