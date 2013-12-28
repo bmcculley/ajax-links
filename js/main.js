@@ -1,12 +1,21 @@
 jQuery(document).ready(function($){
+
 	$('#newLink').click(function(e){
 		e.preventDefault();
 		$('.modal').show();
+		$('.modal-background').show();
 		$('#title').focus();
 	});
 	$('.cancel-link').click(function(e){
 		e.preventDefault();
 		$('.modal').hide();
+		$('.modal-background').hide();
+	});
+	$(document).keyup(function(e){
+	    if(e.keyCode === 27){
+	    	$('.modal').hide();
+			$('.modal-background').hide();
+	    }
 	});
 	$('#submit').click(function(e){
 		e.preventDefault();
@@ -29,30 +38,31 @@ jQuery(document).ready(function($){
 				
 				$('#errorMessage').removeClass().addClass((data.error === true) ? 'error' : 'success')
 					.text(data.msg).show(500);
-				if (data.error === true) {
-					if (data.eh === "title") {
-						$('#title').removeClass().addClass('error');
-					}else {
-						$('#title').removeClass('error').addClass();
+					if (data.error === true) {
+						if (data.eh === "title") {
+							$('#title').removeClass().addClass('error');
+						}else {
+							$('#title').removeClass('error').addClass();
+						}
+						
+						if (data.eh === "url") {
+							$('#url').removeClass().addClass('error');
+						}else {
+							$('#url').removeClass('error').addClass();
+						}
+						
 					}
-					
-					if (data.eh === "url") {
-						$('#url').removeClass().addClass('error');
-					}else {
-						$('#url').removeClass('error').addClass();
+					else {
+						$('.modal').hide();
+						$('.modal-background').hide();
+						$(':input', '#quickpost').not(':submit').val('');
+						location.reload();
 					}
-					
+				},
+				error : function(XMLHttpRequest, textStatus, errorThrown) {
+					$('#errorMessage').removeClass().addClass('error')
+						.text('There was an error.').show(500);
 				}
-				else if (data.error === false) {
-					$('.modal').hide();
-					$(':input', '#quickpost').not(':submit').val('');
-					location.reload(true);
-				}
-			},
-			error : function(XMLHttpRequest, textStatus, errorThrown) {
-				$('#errorMessage').removeClass().addClass('error')
-					.text('There was an error.').show(500);
-			}
 		});
 		
 		return false;
