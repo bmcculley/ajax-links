@@ -67,7 +67,7 @@ class Links {
         . " </div>"
         . " <div class=\"modal-footer\">"
         . " <a href=\"#\" class=\"cancel-link btn btn-link\">Cancel</a>"
-        . " <input type=\"submit\" name=\"submit\" id=\"submit\" class=\"btn btn-info btn-medium\" value=\"Post\" />"
+        . " <input type=\"submit\" name=\"submit\" id=\"submit\" class=\"btn btn-info btn-medium\" value=\"Save\" />"
         . " </form></fieldset>"
         . "</div></div>";
         print($form);
