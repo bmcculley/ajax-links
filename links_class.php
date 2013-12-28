@@ -54,7 +54,7 @@ class Links {
         if(!empty($title)) {
             $this->title = "Re: ".$title;
         }
-       $form = "<div class=\"modal hide fade\">"
+       $form = "<div class=\"modal-background\"><div class=\"modal hide fade\">"
         . "<fieldset>"
         . "<legend>New Link</legend>"
         . "<div class=\"modal-body\">"
@@ -69,7 +69,7 @@ class Links {
         . " <a href=\"#\" class=\"cancel-link btn btn-link\">Cancel</a>"
         . " <input type=\"submit\" name=\"submit\" id=\"submit\" class=\"btn btn-info btn-medium\" value=\"Post\" />"
         . " </form></fieldset>"
-        . " </div>";
+        . "</div></div>";
         print($form);
     }
 
@@ -113,7 +113,7 @@ class Links {
         $sql = mysql_query($sql) or die (mysql_error());
         $iledokumentow = mysql_affected_rows();
         if ($iledokumentow > 0) {
-            print("<ol>\n");
+            print("<ol id=\"link-list\">\n");
             while ($row = mysql_fetch_array($sql)) {
             	$sql1 = "SELECT COUNT(wid)-1 AS num FROM Links WHERE wid=".$row['id']." GROUP BY wid";
                 

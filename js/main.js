@@ -53,10 +53,10 @@ jQuery(document).ready(function($){
 						
 					}
 					else {
+						$('#link-list').prepend('<li><a href="'+url+'">'+title+'</a></li>');
 						$('.modal').hide();
 						$('.modal-background').hide();
 						$(':input', '#quickpost').not(':submit').val('');
-						location.reload();
 					}
 				},
 				error : function(XMLHttpRequest, textStatus, errorThrown) {
