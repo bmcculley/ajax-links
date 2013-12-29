@@ -48,7 +48,7 @@ if (isset($_POST['submit'])) {
 
     <div class="footer">
       <p class="footer-info">
-            This site is built with <a href="http://jquery.com/">jQuery</a> and <a href="html5boilerplate.com">H5BP</a>.<br/>
+            This site is built with <a href="http://jquery.com/">jQuery</a> and <a href="http://html5boilerplate.com">H5BP</a>.<br/>
         </p>
 
         <ul class="footer-links">
